@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: bisque;
+    border: 0px;
+}
+
+button:focus {
+    outline: mediumblue dashed 5px;
+}
+
+header {
+    height: 100px;
+    padding-top: 20px;
+    background-color: aqua;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header>.logo {
+    text-align: center;
+}
+
+header>.menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+}
+
+header>.menu>ul {
+    display: none;
+}
+
+header>.menu:hover>ul {
+    display: block;
+}
+
+header>.add {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 100px;
+}
+
+.content {
+    min-height: 600px;
+    padding-top: 20px;
+    background-color: lightblue;
+}
+
+.content>* {
+    width: 50%;
+    margin: 40px auto;
+}
+
+.content>*:first-child {
+    margin-top: 0;
+}
+
+footer {
+    padding: 5px 0 5px 10px;
+    background-color: teal;
+}
+
+footer > span {
+    position: absolute;
+    right: 10px;
+}
+

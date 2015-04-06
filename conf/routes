@@ -1,0 +1,37 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                          controllers.Application.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file              controllers.Assets.at(path="/public", file)
+
+# Forms
+GET         /login                     controllers.Forms.login
+GET         /signup                    controllers.Queries.accCreate
+GET         /users/signup              controllers.Forms.signUp
+
+# Helpers for dev
+GET         /users                     controllers.Queries.getUsers
+GET         /test                      controllers.Application.test
+GET         /clearcookie               controllers.Application.clearCookie
+GET         /socket                    controllers.Application.socket
+GET         /insta                     controllers.Application.jinstagram
+GET         /handleInstagramToken/     controllers.Application.listenInsta(code: String)
+GET         /test/*path                controllers.Application.testPath(path: String)
+
+# Account
+POST        /account                   controllers.Queries.account
+GET         /users/search              controllers.Queries.searchUsers
+
+# Conversations
+GET         /conversations             controllers.Conversations.conversations
+GET         /getconversations          controllers.Conversations.getConversations
+GET         /conversation              controllers.Conversations.conversation(id: String)
+POST        /createconversation        controllers.Conversations.create(that: String)
+POST        /postmessage               controllers.Conversations.postMessage(id: String)
+
+# Feedback
+GET         /feedback                  controllers.Queries.feedback

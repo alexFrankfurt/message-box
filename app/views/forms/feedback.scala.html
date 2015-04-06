@@ -1,0 +1,9 @@
+@(feedbackForm: Form[models.forms.Feedback])
+@helper.form(action = routes.Queries.feedback()) {
+
+    @helper.inputText(feedbackForm("email"))
+    @helper.textarea(feedbackForm("content"))
+
+    <input type="submit" value="Submit">
+
+}

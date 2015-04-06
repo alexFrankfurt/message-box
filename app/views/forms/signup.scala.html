@@ -1,0 +1,14 @@
+@import _root_.models.forms.UserSignUp
+
+@(userForm: Form[UserSignUp])
+
+@helper.form(action = routes.Forms.signUp) {
+
+    @helper.inputText(userForm("name"))
+    @helper.inputText(userForm("login"))
+    @helper.inputPassword(userForm("password"))
+    @helper.inputText(userForm("email"))
+
+    <input type="submit" value="Submit" class="signup_submit">
+
+}

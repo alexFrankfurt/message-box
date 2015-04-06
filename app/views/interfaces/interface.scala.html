@@ -1,0 +1,25 @@
+@(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>MessageBox</title>
+        <script type="application/dart" src="@routes.Assets.at("dart/main.dart")"></script>
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <h1><a href="/">MessageBox</a></h1>
+            </div>
+        </header>
+        <div class="content">
+            @content
+        </div>
+        <footer>
+            &copy; All rights reserved
+            <span><a href="feedback">feedback</a></span>
+        </footer>
+    </body>
+</html>

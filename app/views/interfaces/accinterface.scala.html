@@ -1,0 +1,41 @@
+@(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>MessageBox</title>
+        <script type="application/dart" src="@routes.Assets.at("dart/user.dart")"></script>
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/accmain.css")">
+    </head>
+    <body>
+        <header>
+            <div class="menu">User menu
+                <ul>
+                    <li>
+                        <a href="conversations">Conversations</a>
+                    </li>
+                    <li>
+                        <a href="#" class="users-search">Search Users</a>
+                    </li>
+                    <li>
+                        <a href="clearcookie">Log out</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logo">
+                <h1><a href="/">MessageBox</a></h1>
+            </div>
+            <div class="add">
+                Add Interlocutor
+            </div>
+        </header>
+        <div class="content">
+            @content
+        </div>
+        <footer>
+            &copy; All rights reserved
+            <span><a href="feedback">feedback</a></span>
+        </footer>
+    </body>
+</html>

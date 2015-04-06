@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: bisque;
+    border: 0px;
+}
+
+button:focus {
+    outline: mediumblue dashed 5px;
+}
+
+header {
+    height: 100px;
+    padding-top: 20px;
+    background-color: aqua;
+}
+
+.logo>h1 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    text-align: center;
+}
+
+.content {
+    height: 600px;
+    padding-top: 20px;
+    background-color: lightblue;
+}
+
+.content>* {
+    width: 50%;
+    margin: 40px auto;
+}
+
+.content>*:first-child {
+    margin-top: 0;
+}
+
+footer {
+    padding: 5px 0 5px 10px;
+    background-color: teal;
+}
+
+footer > span {
+    position: absolute;
+    right: 10px;
+}
+
