@@ -1,0 +1,5 @@
+*.scala  text
+*.dart   text
+*.sbt    text
+*.html   text
+*.css    text
