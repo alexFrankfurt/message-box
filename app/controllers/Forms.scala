@@ -1,11 +1,16 @@
 package controllers
 
+import javax.inject.Inject
+
 import models.tables.Users
+import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc._
-import Queries._
 import scala.slick.driver.MySQLDriver.simple._
 
-object Forms extends Controller {
+class Forms @Inject()
+  (queries: Queries, val messagesApi: MessagesApi) extends Controller with I18nSupport {
+  import queries._
+
   def login = Action {
     Ok(views.html.forms.login())
   }

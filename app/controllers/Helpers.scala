@@ -2,7 +2,7 @@ package controllers
 
 import play.api.mvc.{AnyContent, Request}
 
-object Helpers {
+class Helpers {
 
   var conversationId = 100
 
@@ -20,5 +20,4 @@ object Helpers {
     conversationId += 1
     currentId
   }
-
 }

@@ -1,5 +1,7 @@
 package controllers
 
+import javax.inject.Inject
+
 import akka.actor.{Props, ActorSystem}
 import models.actors.{ManagerActor, ClientActor, UserActor, ServiceActor}
 import models.tables.Tmp
@@ -12,10 +14,11 @@ import org.jinstagram.entity.users.feed.MediaFeed
 import play.api._
 import play.api.mvc._
 import play.api.Play.current
-import Helpers.checkUser
 import scala.slick.driver.MySQLDriver.simple._
 
-object Application extends Controller {
+class Application @Inject()
+  (helpers: Helpers) extends Controller {
+  import helpers._
 
   def index = Action { implicit request =>
 //    val cookies = request.cookies
@@ -67,13 +70,13 @@ object Application extends Controller {
     Redirect("/").discardingCookies(DiscardingCookie("login"), DiscardingCookie("password"))
   }
 
-  def socket = WebSocket.acceptWithActor[String, String] { request => out =>
-    lazy val userActor = system.actorOf(Props[UserActor],request.cookies.get("login") match {
-      case Some(login) => login.value
-      case None => ""
-    })
-    ClientActor.props(out, userActor)
-  }
+//  def socket = WebSocket.acceptWithActor[String, String] { request => out =>
+//    lazy val userActor = system.actorOf(Props[UserActor],request.cookies.get("login") match {
+//      case Some(login) => login.value
+//      case None => ""
+//    })
+//    ClientActor.props(out, userActor)
+//  }
 
   val inServ = new InstagramAuthService()
     .apiKey("4b3bf947e41d4bb493635920e5b34a1e")
@@ -123,5 +126,4 @@ object Application extends Controller {
   def testPath(path: String) = Action {
     Ok(path)
   }
-
 }

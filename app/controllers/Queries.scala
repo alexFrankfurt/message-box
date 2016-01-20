@@ -1,16 +1,20 @@
 package controllers
 
+import javax.inject._
+
 import models.forms.{Feedback, UserSignUp, UserLogIn}
 import models.tables.{Administrators, Feedbacks, Users}
 import play.api.data._
 import play.api.data.Forms._
+import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc._
 import models._
 import scala.slick.driver.MySQLDriver.simple._
-import Helpers.checkUser
 import play.api.libs.json._
 
-object Queries extends Controller {
+class Queries @Inject()
+  (helpers: Helpers, val messagesApi: MessagesApi) extends Controller with I18nSupport {
+  import helpers._
 
   def getUsers = Action { implicit request =>
     val mesBox = Database.forURL("jdbc:mysql://localhost:3306/messagebox", driver = "com.mysql.jdbc.Driver", user = "root")
@@ -146,5 +150,4 @@ object Queries extends Controller {
     )
     Ok(json.toString)
   }
-
 }

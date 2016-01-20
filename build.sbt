@@ -6,7 +6,9 @@ lazy val `messagebox` = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.11.7"
 
-libraryDependencies ++= Seq( jdbc , anorm , cache , ws )
+libraryDependencies ++= Seq( jdbc , cache , ws )
+
+routesGenerator := InjectedRoutesGenerator
 
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
 

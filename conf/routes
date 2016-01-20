@@ -17,7 +17,7 @@ GET         /users/signup              controllers.Forms.signUp
 GET         /users                     controllers.Queries.getUsers
 GET         /test                      controllers.Application.test
 GET         /clearcookie               controllers.Application.clearCookie
-GET         /socket                    controllers.Application.socket
+#GET         /socket                    controllers.Application.socket
 GET         /insta                     controllers.Application.jinstagram
 GET         /handleInstagramToken/     controllers.Application.listenInsta(code: String)
 GET         /test/*path                controllers.Application.testPath(path: String)
