@@ -1,6 +1,5 @@
 package models.actors
 
-
 import javax.inject.Inject
 
 import concurrent.duration._

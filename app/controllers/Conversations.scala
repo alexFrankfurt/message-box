@@ -57,5 +57,4 @@ class Conversations @Inject()
     }
     Redirect("conversations")
   }
-
 }
