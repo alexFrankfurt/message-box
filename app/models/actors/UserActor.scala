@@ -29,7 +29,7 @@ class UserActor @Inject()
 
       val sAc = system.actorSelection("akka://MessageSystem/user/managerActor/conversation" + msg.id)
 //      val serviceActor = system.actorFor("akka://MessageSystem/user/managerActor/serviceConversation" + msg.id)
-      implicit val timeout: Timeout = 5000
+      implicit val timeout: Timeout = 5000.millis
       sAc.resolveOne().onComplete {
         case Success(actor) => client ! Response("actor running")
         case Failure(ex) =>
