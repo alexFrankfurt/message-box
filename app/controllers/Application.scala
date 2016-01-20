@@ -70,13 +70,13 @@ class Application @Inject()
     Redirect("/").discardingCookies(DiscardingCookie("login"), DiscardingCookie("password"))
   }
 
-  def socket = WebSocket.acceptWithActor[String, String] { request => out =>
-    lazy val userActor = system.actorOf(Props[UserActor],request.cookies.get("login") match {
-      case Some(login) => login.value
-      case None => ""
-    })
-    ClientActor.props(out, userActor)
-  }
+//  def socket = WebSocket.acceptWithActor[String, String] { request => out =>
+//    lazy val userActor = system.actorOf(Props[UserActor],request.cookies.get("login") match {
+//      case Some(login) => login.value
+//      case None => ""
+//    })
+//    ClientActor.props(out, userActor)
+//  }
 
   val inServ = new InstagramAuthService()
     .apiKey("4b3bf947e41d4bb493635920e5b34a1e")
