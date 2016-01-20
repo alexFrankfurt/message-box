@@ -1,22 +1,26 @@
 package models.actors
 
 
+import javax.inject.Inject
+
+import concurrent.duration._
 import akka.actor.{Identify, Terminated, ActorRef, Actor}
 import akka.util.Timeout
-import controllers.Application.system
 
 import scala.util.{Failure, Success}
 
 object UserActor {
-  val managerActor = system.actorSelection("akka://MessageSystem/user/managerActor")
   case class RegisterOut(out: ActorRef)
 }
 
-class UserActor extends Actor {
+class UserActor @Inject()
+  (app: controllers.Application) extends Actor {
   import UserActor._
+  import app.system
   import models.{Message, Response}
   import ManagerActor.CreateServiceActor
 
+  val managerActor = system.actorSelection("akka://MessageSystem/user/managerActor")
   var client = context.system.deadLetters
   implicit val ec = context.dispatcher
 

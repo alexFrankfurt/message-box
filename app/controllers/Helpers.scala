@@ -2,7 +2,7 @@ package controllers
 
 import play.api.mvc.{AnyContent, Request}
 
-object Helpers {
+class Helpers {
 
   var conversationId = 100
 

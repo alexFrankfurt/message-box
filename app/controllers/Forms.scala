@@ -1,11 +1,15 @@
 package controllers
 
+import javax.inject.Inject
+
 import models.tables.Users
 import play.api.mvc._
-import Queries._
 import scala.slick.driver.MySQLDriver.simple._
 
-object Forms extends Controller {
+class Forms @Inject()
+  (queries: Queries) extends Controller {
+  import queries._
+
   def login = Action {
     Ok(views.html.forms.login())
   }

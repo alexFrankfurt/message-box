@@ -1,14 +1,15 @@
 package controllers
 
+import javax.inject.Inject
+
 import models.tables.UserConversation
 import play.api.mvc.{Action, Controller}
-import controllers.Helpers.checkUser
-import Helpers.getConversationId
 import scala.slick.driver.MySQLDriver.simple._
 import play.api.libs.json._
 
-
-object Conversations extends Controller {
+class Conversations @Inject()
+  (helpers: Helpers) extends Controller {
+  import helpers._
 
   def conversations = Action { implicit request =>
     checkUser match {
