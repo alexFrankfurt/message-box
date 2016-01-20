@@ -20,5 +20,4 @@ class Helpers {
     conversationId += 1
     currentId
   }
-
 }

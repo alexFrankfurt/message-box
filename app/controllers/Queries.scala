@@ -149,5 +149,4 @@ class Queries @Inject()
     )
     Ok(json.toString)
   }
-
 }

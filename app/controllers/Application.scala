@@ -126,5 +126,4 @@ class Application @Inject()
   def testPath(path: String) = Action {
     Ok(path)
   }
-
 }
