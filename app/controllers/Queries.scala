@@ -6,13 +6,14 @@ import models.forms.{Feedback, UserSignUp, UserLogIn}
 import models.tables.{Administrators, Feedbacks, Users}
 import play.api.data._
 import play.api.data.Forms._
+import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc._
 import models._
 import scala.slick.driver.MySQLDriver.simple._
 import play.api.libs.json._
 
 class Queries @Inject()
-  (helpers: Helpers) extends Controller {
+  (helpers: Helpers, val messagesApi: MessagesApi) extends Controller with I18nSupport {
   import helpers._
 
   def getUsers = Action { implicit request =>

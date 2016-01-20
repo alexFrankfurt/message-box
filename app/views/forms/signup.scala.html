@@ -1,6 +1,6 @@
 @import _root_.models.forms.UserSignUp
 
-@(userForm: Form[UserSignUp])
+@(userForm: Form[UserSignUp])(implicit messages: Messages)
 
 @helper.form(action = routes.Forms.signUp) {
 

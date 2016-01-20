@@ -1,4 +1,4 @@
-@(feedbackForm: Form[models.forms.Feedback])
+@(feedbackForm: Form[models.forms.Feedback])(implicit messages: Messages)
 @helper.form(action = routes.Queries.feedback()) {
 
     @helper.inputText(feedbackForm("email"))
